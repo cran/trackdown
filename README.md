@@ -8,8 +8,9 @@
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CRANstatus](https://www.r-pkg.org/badges/version/trackdown)](https://CRAN.R-project.org/package=trackdown)
 [![R-CMD-check](https://github.com/claudiozandonella/trackdown/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/claudiozandonella/trackdown/actions/workflows/check-standard.yaml)
-[![codecov](https://codecov.io/gh/claudiozandonella/trackdown/branch/develop/graph/badge.svg?token=E6GR3JAHV6)](https://codecov.io/gh/claudiozandonella/trackdown)
+[![codecov](https://codecov.io/gh/claudiozandonella/trackdown/branch/develop/graph/badge.svg?token=E6GR3JAHV6)](https://app.codecov.io/gh/claudiozandonella/trackdown)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5167320.svg)](https://doi.org/10.5281/zenodo.5167320)
 <!-- badges: end -->
 
@@ -27,8 +28,16 @@ locally.
 
 ## Installation
 
-This package is not available on CRAN yet. To install the development
-version from GitHub, run the following code:
+You can install the released version from
+[CRAN](https://CRAN.R-project.org/package=trackdown) with:
+
+``` r
+install.packages("trackdown")
+```
+
+To install the development version from
+[GitHub](https://github.com/ClaudioZandonella/trackdown/), run the
+following code:
 
 ``` r
 # install.packages("remotes")
@@ -169,7 +178,7 @@ The BibTeX entry is:
       title = {trackdown: Collaborative Writing and Editing of R Markdown (or Sweave) Documents in Google Drive},
       author = {Emily Kothe and Claudio Zandonella Callegher and Filippo Gambarota and Janosch Linkersdörfer and Mathew Ling},
       year = {2021},
-      note = {R package version 1.0.0},
+      note = {R package version 1.1.1},
       url = {https://github.com/claudiozandonella/trackdown},
       doi = {10.5281/zenodo.5167320},
     }

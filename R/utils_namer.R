@@ -60,12 +60,12 @@ quote_label <-  function(x) {
 #'
 #' @examples
 #'   # rmd
-#'   lines <- readLines("tests/testthat/test_files/example_1_rmd.txt")
+#'   lines <- readLines("tests/testthat/test_files/examples/example-1.Rmd")
 #'   info_patterns <- get_extension_patterns(extension = "rmd")
 #'   get_chunk_info(lines, info_patterns)
 #'   
 #'   # rnw
-#'   lines <- readLines("tests/testthat/test_files/example_1_rnw.txt")
+#'   lines <- readLines("tests/testthat/test_files/examples/example-1.Rnw")
 #'   info_patterns <- get_extension_patterns(extension = "rnw")
 #'   get_chunk_info(lines, info_patterns)
 #' 
@@ -165,13 +165,13 @@ parse_chunk_header <- function(chunk_header, info_patterns){
 #'
 #' @examples
 #'   # rmd
-#'   lines <- readLines("tests/testthat/test_files/example_1_rmd.txt")
+#'   lines <- readLines("tests/testthat/test_files/examples/example-1.Rmd")
 #'   info_patterns <- get_extension_patterns(extension = "rmd")
 #'   chunk_header_index <- which(grepl(info_patterns$chunk_header_start, lines))[1]
 #'   digest_chunk_header(chunk_header_index, lines, info_patterns)
 #'   
 #'   # rnw
-#'   lines <- readLines("tests/testthat/test_files/example_1_rnw.txt")
+#'   lines <- readLines("tests/testthat/test_files/examples/example-1.Rnw")
 #'   info_patterns <- get_extension_patterns(extension = "rnw")
 #'   chunk_header_index <- which(grepl(info_patterns$chunk_header_start, lines))[1]
 #'   digest_chunk_header(chunk_header_index, lines, info_patterns)
@@ -260,7 +260,8 @@ parse_label_rmd <- function(label, params){
   
   data.frame(language = language,
              name = name_chunk,
-             options = options)
+             options = options, 
+             stringsAsFactors = FALSE)
 }
 
 
@@ -280,7 +281,8 @@ parse_label_rnw <- function(label, params){
   
   data.frame(language = NA,
              name = name_chunk,
-             options = options)
+             options = options, 
+             stringsAsFactors = FALSE)
 }
 
 #----

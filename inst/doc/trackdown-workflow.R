@@ -7,7 +7,7 @@ knitr::opts_chunk$set(
 )
 
 ## ---- echo = TRUE, eval = FALSE-----------------------------------------------
-#  trackdown::update_file(file = "Path-to-file/My-Report.Rmd", hide_code = TRUE)
+#  trackdown::upload_file(file = "Path-to-file/My-Report.Rmd", hide_code = TRUE)
 
 ## ---- echo = TRUE, eval = FALSE-----------------------------------------------
 #  trackdown::download_file(file = "Path-to-file/My-Report.Rmd")

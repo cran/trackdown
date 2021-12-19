@@ -65,15 +65,19 @@ sanitize_document <- function(file) {
 #----    stop_quietly    ----
 
 #' Stop quietly
-#' 
-#' Stop a function without throwing an error.
-#' Function adapted from https://stackoverflow.com/a/42945293/12481476
 #'
-#' @param text a string indicating the message to display 
+#' Stop a function without throwing an error. Function adapted from
+#' https://stackoverflow.com/a/42945293/12481476
+#'
+#' Note that messages() is required to print text because show.error.messages is
+#' set to FALSE
+#'
+#' @param text a string indicating the message to display
 #'
 #' @return NULL
 #' @noRd
-#'
+#' 
+
 stop_quietly <- function(text = NULL) {
   opt <- options(show.error.messages = FALSE)
   on.exit(options(opt))
@@ -173,7 +177,7 @@ get_file_info <- function(file){
 #' @noRd
 #'
 #' @examples
-#'   file_info <- get_file_info("tests/testthat/test_files/example_1.Rmd")
+#'   file_info <- get_file_info("tests/testthat/test_files/examples/example-1.Rmd")
 #'   get_instructions(file_info, TRUE)
 #' 
 
@@ -216,8 +220,8 @@ get_instructions <- function(file_info, hide_code){
 #' @noRd 
 #'
 #' @examples
-#'   document <- readLines("tests/testthat/test_files/example_1_rmd.txt")
-#'   file_info <- get_file_info("tests/testthat/test_files/example_1.Rmd")
+#'   document <- readLines("tests/testthat/test_files/examples/example-1.Rmd")
+#'   file_info <- get_file_info("tests/testthat/test_files/examples/example-1.Rmd")
 #'   format_document(document, file_info = file_info, hide_code = FALSE)
 #'   
 
@@ -310,7 +314,7 @@ check_dribble <- function(dribble, gfile, test = c("none", "single", "both")){
 #'
 #' @examples
 #' 
-#' document <- readLines("tests/testthat/test_files/example_instructions.txt", warn = FALSE)
+#' document <- readLines("tests/testthat/test_files/examples/example-1-restore.Rmd", warn = FALSE)
 #' eval_instructions(document)
 #' 
 #' # no instructions delimiters
@@ -481,6 +485,34 @@ check_supported_documents <- function(file_info){
 
 get_os <- function(){
   return(.Platform$OS.type)
+}
+
+#----    is_blank    ----
+
+#' Is Blank Line
+#' 
+#' Evaluate whether is a blank line.
+#' Based on knitr is_blank() function
+#' https://github.com/yihui/knitr/blob/237cde1afc1f5b94178069e4ee39debe9d4ece28/R/utils.R#L47-L49
+#'
+#' @param x  a string
+#'
+#' @return logical value
+#' @noRd
+#'
+#' @examples
+#' # FALSE
+#' is_blank("Hello-World!")
+#' is_blank(NA)
+#' 
+#' # TRUE
+#' is_blank("    ")
+#' is_blank("")
+#' is_blank(NULL)
+#' 
+
+is_blank <-  function(x) {
+  if (length(x)) all(grepl('^\\s*$', x)) else TRUE
 }
 
 #----
